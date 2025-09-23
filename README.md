@@ -17,6 +17,12 @@ cd <your-repo>
 dotnet build
 ```
 
+checks if the program is working
 ```
-dotnet run --project src/WarhammerStats.Cli -- hello world
+dotnet run --project src/WarhammerStats.Cli -- status
+```
+
+checks the current version of the programm
+```
+dotnet run --project src/WarhammerStats.Cli -- status
 ```
