@@ -5,14 +5,18 @@ var rootCommand = new RootCommand("Warhammer Stats CLI");
 
 //for testing if cli is working
 
-var helloCommand = new Command("hello", "Say hello");
-var nameArgument = new Argument<string>("name");
-helloCommand.Add(nameArgument);
+var statusCommand = new Command("status", "Check if WarhammerStats CLI is working");
 
-helloCommand.SetHandler((string name) =>
+statusCommand.SetHandler(() =>
 {
-    Console.WriteLine($"Hello, {name}!");
-}, nameArgument);
+    Console.WriteLine("WarhammerStats CLI is ready.");
+});
+
+var versionCommand = new Command("version", "Show the current version of WarhammerStats");
+versionCommand.SetHandler(() =>
+{
+    Console.WriteLine($"WarhammerStats CLI v{VersionInfo.Current}");
+});
 
 //update units command
 
@@ -34,7 +38,8 @@ updateUnitsCommand.SetHandler((string pdfPath) =>
 }, pdfPathArgument);
 
 
-rootCommand.Add(helloCommand);
+rootCommand.AddCommand(statusCommand);
+rootCommand.AddCommand(versionCommand);
 rootCommand.Add(updateUnitsCommand);
 
 return await rootCommand.InvokeAsync(args);
