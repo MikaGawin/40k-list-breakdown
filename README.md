@@ -24,5 +24,9 @@ dotnet run --project src/WarhammerStats.Cli -- status
 
 checks the current version of the programm
 ```
-dotnet run --project src/WarhammerStats.Cli -- status
+dotnet run --project src/WarhammerStats.Cli -- version
 ```
+
+updates data
+```
+dotnet run --project src/WarhammerStats.Cli -- update-units 
